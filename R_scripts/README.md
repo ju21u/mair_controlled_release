@@ -4,7 +4,7 @@ This directory contains R scripts used for data loading, pre-processing, and met
 
 ---
 
-## 🔹 Data Loading & Cleaning
+## Data Loading & Cleaning
 
 | Script                          | Purpose                                                                 |
 |---------------------------------|-------------------------------------------------------------------------|
@@ -19,7 +19,7 @@ This directory contains R scripts used for data loading, pre-processing, and met
 
 ---
 
-## 🔹 Emission Estimation
+## Emission Estimation
 
 | Script                    | Purpose                                                                 |
 |---------------------------|-------------------------------------------------------------------------|
@@ -28,7 +28,7 @@ This directory contains R scripts used for data loading, pre-processing, and met
 
 ---
 
-## 🔹 Shared Resources
+## Shared Resources
 
 | Script                    | Purpose                                                                 |
 |---------------------------|-------------------------------------------------------------------------|
