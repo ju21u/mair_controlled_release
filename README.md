@@ -10,9 +10,9 @@ This repository contains scripts and configurations for the MethaneAIR Controlle
 ```
 mair_controlled_release-2025_updates/
 
- R_scripts/                  # Main R scripts for data processing and emission estimation
- DI_scripts/                # Scripts for inversion or direct integration methods
- modified_WRF/              # Customized WRF & WPS setup
+ R_scripts/                  # Main R scripts for data processing and IME emission estimation
+ DI_scripts/                 # Scripts for Divergent Integral methods
+ modified_WRF/               # Customized WRF & WPS setup
     WRF/
     WPS/
  LICENSE
@@ -31,8 +31,8 @@ mair_controlled_release-2025_updates/
 ### Setup
 
 ```bash
-git clone https://github.com/your_org/mair_controlled_release-2025_updates.git
-cd mair_controlled_release-2025_updates
+git clone https://github.com/ju21u/mair_controlled_release-main.git
+cd mair_controlled_release-main
 
 # In R:
 source('R_scripts/load_libraries.R')
