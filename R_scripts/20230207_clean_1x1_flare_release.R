@@ -115,7 +115,6 @@ for (current_thres in thres_all){
       RF04_small_conc_summary <- append(RF04_small_conc_summary, out.all[5])
       RF04_large_conc_summary <- append(RF04_large_conc_summary, out.all[6])
       RF04_inflow_summary <- append(RF04_inflow_summary, out.all[8])
-      browser()
 
   }
   write.csv(RF04_release_summary,file.path(out.folder, paste('RF04_1000_',  as.character(current_thres), '.csv', sep = '' )))
