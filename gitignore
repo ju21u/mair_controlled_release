@@ -1,0 +1,63 @@
+
+# R-specific
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+.Rprofile
+.Rbuildignore
+
+# RStudio
+*.Rproj
+.Rproj.user/
+
+# Data files
+*.csv
+*.tsv
+*.rds
+*.RData
+*.feather
+*.parquet
+
+# Compiled code
+*.o
+*.so
+*.dll
+
+# Logs and outputs
+*.log
+*.aux
+*.out
+*.toc
+
+# WRF-specific
+wrfout*
+wrfinput*
+wrfbdy*
+met_em*
+namelist.input
+namelist.output
+namelist.wps
+rsl.*
+fort.*
+input_sounding
+geo_em.d*
+
+# Temporary files
+*~
+*.tmp
+*.bak
+*.swp
+
+# NetCDF output
+*.nc
+
+# Python virtual environments
+venv/
+.env/
+__pycache__/
+*.py[cod]
+
+# System files
+.DS_Store
+Thumbs.db
