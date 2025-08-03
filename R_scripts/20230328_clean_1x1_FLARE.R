@@ -1,5 +1,3 @@
-# go to the SEGMENT_RASTER folder
-# FIX THE PRESSURE --> no pressure from Steve atm 
 cat('\014')
 graphics.off()
 rm(list = ls())

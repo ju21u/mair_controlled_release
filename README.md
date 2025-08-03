@@ -53,12 +53,6 @@ Large `.nc` files and model output are not tracked in Git. Please place external
 
 The `modified_WRF/` folder contains a customized WRF-WPS setup for processing ERA5/GDAS data. See the README inside that folder for WPS usage.
 
-##  Tips for Maintenance
-
-- Use consistent naming (avoid timestamps in filenames).
-- Archive outdated versions instead of keeping many copies.
-- Prefer `load_libraries.R` to manage package dependencies.
-
 ##  License
 
 This project is licensed under the terms of the LICENSE file in the root directory.

@@ -1,5 +1,3 @@
-# go to the SEGMENT_RASTER folder
-# FIX THE PRESSURE --> no pressure from Steve atm 
 cat('\014')
 graphics.off()
 rm(list = ls())
@@ -15,7 +13,7 @@ export_data = FALSE
 resolution = "1x1"
 crop.radius = 1000 # 5km 
 N_i = 1000 # number of iterations
-out.folder = file.path("/n/holylfs04/LABS/wofsy_lab/Users/achulakadabba/Outputs/" ) #CSVs", resolution, paste(as.character(crop.radius), "m", sep = ""))
+out.folder = file.path("/n/holylfs04/LABS/wofsy_lab/Users/achulakadabba/Outputs/" )
 cropped_plume_folder = "/n/holylfs04/LABS/wofsy_lab/Users/achulakadabba/MethaneAIR/controlled_plume_rasters"
 ########################################
 ########################################
@@ -51,19 +49,16 @@ for (current_thres in thres_all){
   
   # # RF04
   ###### COMMENTS #################
-  segment.inputs = seq(9)#@c(1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21) #seq(9) #(1, 5) #, 10, 12, 14)
-
+  segment.inputs = seq(9)
 
   static.release.inflow = c(-102.3060, -102.300, 32.0503, 32.052)
-  static.release = c(-102.3045, -102.3005, 32.052, 32.06000) #c(-102.3045, -102.298, 32.052, 32.06000) #
+  static.release = c(-102.3045, -102.3005, 32.052, 32.06000) 
   static.release.ext <-  data.frame(t(static.release))
   static.release.plot.lon <- static.release.inflow[1:2]
   static.release.plot.lat <- static.release.inflow[3:4]
 
   
-  
-  
- # RF08.sources = cbind(raw_maryann_data$x_min, raw_maryann_data$x_max, raw_maryann_data$y_min, raw_maryann_data$y_max)
+
   
   inflow_sides = raw_maryann_data$plume_wind_angl
   inflow_sides[inflow_sides > -45  & inflow_sides < 45] = 1 # NORTH 
@@ -103,7 +98,7 @@ for (current_thres in thres_all){
    for (current.idx in seq(length(segment.inputs))) {
  
     current.research.flight  = "RF04"
-    #current.path = "/Users/apisada/Google Drive/My Drive/Research/Harvard_Research/MethaneAIR/From_Steve/all.segs/RF04/1x1/SEGMENT_RASTERS/"
+
     current.segment.input = segment.inputs[current.idx]
 
     # load what needs to be loaded for the estimate_emissions function to work
@@ -113,10 +108,10 @@ for (current_thres in thres_all){
       setwd(current.path)
 
       out.all = estimate_emissions( current.research.flight = current.research.flight,
-                      #xy.input = xy.release, box.inflow.input = RF04.release.inflows[current.idx, ],
+                     
                       xy.input = xy.release, box.inflow.input = static.release.inflow,
                       e.input = extent(static.release), source.name.input = 'release',
-                      #e.input = extent(RF04.release[current.idx, ]), source.name.input = 'release',
+                   
                       current.segment.input  = current.segment.input, res = resolution, N_i = N_i,
                       plume_crop = NULL)
       out.row = out.all[[1]]

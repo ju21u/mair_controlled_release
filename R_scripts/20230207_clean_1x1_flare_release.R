@@ -1,5 +1,4 @@
-.# go to the SEGMENT_RASTER folder
-# FIX THE PRESSURE --> no pressure from Steve atm 
+
 cat('\014')
 graphics.off()
 rm(list = ls())
@@ -15,14 +14,12 @@ export_data = FALSE
 resolution = "1x1"
 crop.radius = 1000 # 5km 
 N_i = 1000 # number of iterations
-out.folder = file.path("/n/holylfs04/LABS/wofsy_lab/Users/achulakadabba/Outputs/" ) #CSVs", resolution, paste(as.character(crop.radius), "m", sep = ""))
+out.folder = file.path("/n/holylfs04/LABS/wofsy_lab/Users/achulakadabba/Outputs/" ) 
 cropped_plume_folder = "/n/holylfs04/LABS/wofsy_lab/Users/achulakadabba/MethaneAIR/controlled_plume_rasters"
 ########################################
 ########################################
 ########################################
 
-# current.research.flight = "RF05"
-# source.name = "flare"
 ########################################
 ########################################
 ########################################
@@ -33,7 +30,7 @@ MASS_WINDS_release = NULL
 MASS_WINDS_flare = NULL
 
 #thres_all  = 2 ## number of sd's above the median
-thres_all = c(1.5) #, 2) # , 2.5, 3) #c(1, 1.5, 2, 2.5, 3)
+thres_all = c(1.5) 
 for (current_thres in thres_all){
   min_pixels_in_a_clump = 20 ## number of points in a clump (> 2000 sq m ++) 
   
@@ -60,11 +57,11 @@ for (current_thres in thres_all){
 
   # # RF04
   ###### COMMENTS #################
-  segment.inputs = seq(9)#@c(1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21) #seq(9) #(1, 5) #, 10, 12, 14)
+  segment.inputs = seq(9)
 
 
   static.release.inflow = c(-102.3060, -102.300, 32.0503, 32.052)
-  static.release = c(-102.3045, -102.3005, 32.052, 32.06000) #c(-102.3045, -102.298, 32.052, 32.06000) #
+  static.release = c(-102.3045, -102.3005, 32.052, 32.06000) 
   static.release.ext <-  data.frame(t(static.release))
   static.release.plot.lon <- static.release.inflow[1:2]
   static.release.plot.lat <- static.release.inflow[3:4]
@@ -94,7 +91,7 @@ for (current_thres in thres_all){
    for (current.idx in seq(length(segment.inputs))) {
  
     current.research.flight  = "RF04"
-    #current.path = "/Users/apisada/Google Drive/My Drive/Research/Harvard_Research/MethaneAIR/From_Steve/all.segs/RF04/1x1/SEGMENT_RASTERS/"
+    
     current.segment.input = segment.inputs[current.idx]
 
     # load what needs to be loaded for the estimate_emissions function to work
@@ -104,10 +101,10 @@ for (current_thres in thres_all){
       setwd(current.path)
 
       out.all = estimate_emissions( current.research.flight = current.research.flight,
-                      #xy.input = xy.release, box.inflow.input = RF04.release.inflows[current.idx, ],
+                      
                       xy.input = xy.release, box.inflow.input = static.release.inflow,
                       e.input = extent(static.release), source.name.input = 'release',
-                      #e.input = extent(RF04.release[current.idx, ]), source.name.input = 'release',
+                     
                       current.segment.input  = current.segment.input, res = resolution, N_i = N_i,
                       plume_crop = NULL)
       out.row = out.all[[1]]
@@ -126,10 +123,9 @@ for (current_thres in thres_all){
   e_current_background = extent(c(-102.32, -102.31, 32.10, 32.11))
 
   ###### COMMENTS #################
-  #ser()
 #   #RF05
   ########################################
-  segment.inputs =  c(1, 3, 5,  7, 9, 11,  13, 15, 17, 21, 23)  #c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)  #c(1, 3, 5,  7, 9, 11,  13, 15, 17, 21, 23)  #c(1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23) #, 25, 27, 29) #c( 25, 27, 29) # c(1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23,
+  segment.inputs =  c(1, 3, 5,  7, 9, 11,  13, 15, 17, 21, 23) 
 
     
 for (current.idx in seq(length(segment.inputs))) {
@@ -167,7 +163,7 @@ for (current.idx in seq(length(segment.inputs))) {
       for (current.idx in seq(length(segment.inputs))) {
 
        current.research.flight  = "RF04"
-      #current.path = "/Users/apisada/Google Drive/My Drive/Research/Harvard_Research/MethaneAIR/From_Steve/all.segs/RF04/1x1/SEGMENT_RASTERS/"
+     
       current.segment.input = segment.inputs[current.idx]
 
       # load what needs to be loaded for the estimate_emissions function to work
@@ -177,10 +173,10 @@ for (current.idx in seq(length(segment.inputs))) {
       setwd(current.path)
 
       out.all = estimate_emissions( current.research.flight = current.research.flight,
-                                    #xy.input = xy.flare, box.inflow.input = RF04.flare.inflows[current.idx, ],
+                                    
                                     xy.input = xy.flare, box.inflow.input = static.flare.inflow,
                                     e.input = extent(static.flare), source.name.input = 'flare',
-                                    #e.input = extent(RF04.flare[current.idx, ]), source.name.input = 'flare',
+                                   
                                     current.segment.input  = current.segment.input, res = resolution, N_i = N_i,
                                     plume_crop = NULL)
       out.row = out.all[[1]]
@@ -191,7 +187,6 @@ for (current.idx in seq(length(segment.inputs))) {
       RF04_small_conc_summary <- append(RF04_small_conc_summary, out.all[5])
       RF04_large_conc_summary <- append(RF04_large_conc_summary, out.all[6])
       RF04_inflow_summary <- append(RF04_inflow_summary, out.all[8])
-      #browser()
 
       }
       write.csv(RF04_flare_summary,file.path(out.folder, paste('RF04_flare_10_',  as.character(current_thres), '.csv', sep = '' )))
@@ -199,10 +194,9 @@ for (current.idx in seq(length(segment.inputs))) {
       e_current_background = extent(c(-102.32, -102.31, 32.10, 32.11))
       
       ###### COMMENTS #################
-      #ser()
       #   #RF05
       ########################################
-      segment.inputs =  c(1, 3, 5,  7, 9, 11,  13, 15, 17, 19, 21, 23, 25)  #c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22)  #c(1, 3, 5,  7, 9, 11,  13, 15, 17, 21, 23)  #c(1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23) #, 25, 27, 29) #c( 25, 27, 29) # c(1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23,
+      segment.inputs =  c(1, 3, 5,  7, 9, 11,  13, 15, 17, 19, 21, 23, 25) 
       
       
       for (current.idx in seq(length(segment.inputs))) {
@@ -217,8 +211,6 @@ for (current.idx in seq(length(segment.inputs))) {
         if(!is.na(sum(RF05.flare.inflows[current.idx, ]))) {
           
           out.all = estimate_emissions( current.research.flight = current.research.flight,
-                                       # xy.input = xy.flare, box.inflow.input = static.flare.inflow,
-                                       # e.input = extent(static.flare), source.name.input = 'flare',
                                         xy.input = xy.flare, box.inflow.input = RF05.flare.inflows[current.idx, ],
                                         e.input = extent(RF05.flare[current.idx, ]), source.name.input = 'flare',
                                         current.segment.input  = current.segment.input, res = resolution, N_i = N_i)
